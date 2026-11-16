@@ -13,7 +13,12 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     body: JSON.stringify(data)
   })
 
-  const result = await res.json();
-  alert(res.ok ? 'Успех!' : 'Ошибка: ' + result.error)
-  if (res.ok) e.target.reset()
+  const result = await res.json()
+
+  if (res.ok) {
+    alert('Успех!')
+    window.location.href = '/';
+  } else {
+    alert('Ошибка: ' + result.error)
+  }
 })
