@@ -1,27 +1,30 @@
 import { db } from "./db.ts";
+import bcrypt from "bcrypt";
 
-const users = [
-  { email: "alice@prisma.io", username: "alice", name: "Alice" },
-  { email: "bob@prisma.io", username: "bob", name: "Bob" },
-  { email: "carol@prisma.io", username: "carol", name: "Carol" },
-];
-
-let pendingSeed: Promise<void> | undefined;
-
-async function runSeed(): Promise<void> {
-  for (const user of users) {
-    await db.orm.public.User.upsert({
-      create: user,
-      update: {},
-      conflictOn: { email: user.email },
-    });
-  }
-}
-
-export function seed(): Promise<void> {
-  pendingSeed ??= runSeed().catch((error: unknown) => {
-    pendingSeed = undefined;
-    throw error;
+async function main() {
+  // Явно передаём строку подключения, чтобы Prisma 8 знала, куда стучаться
+  await db.connect({
+    url: "postgresql://postgres:prisma@localhost:5433/shop_db",
   });
-  return pendingSeed;
+
+  const hashedPassword = await bcrypt.hash("123", 10);
+
+  const user = await db.orm.public.User.create({
+    email: "test2@example.com", // <-- Поменяй на этот email
+    password: hashedPassword,
+    name: "Пётр",
+  });
+
+
+  console.log("УСПЕХ! Пользователь создан:", user);
 }
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    // Закрываем соединение, чтобы скрипт завершился
+    await db.close();
+  });

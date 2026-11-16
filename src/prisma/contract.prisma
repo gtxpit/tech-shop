@@ -1,21 +1,21 @@
 // use prisma-8
 
 model User {
-  id        Int                @id @default(autoincrement())
-  email     String             @unique
-  username  String?
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String    // Здесь будет храниться хеш пароля
   name      String?
-  posts     Post[]
-  createdAt DateTime           @default(now()) @onCreate(now())
-  updatedAt temporal.UpdatedAt
+  products  Product[] // У одного пользователя может быть много товаров
+  createdAt DateTime  @default(now())
 }
 
-model Post {
-  id        Int                @id @default(autoincrement())
-  title     String
-  content   String?
-  author    User               @relation(fields: [authorId], references: [id])
-  authorId  Int
-  createdAt DateTime           @default(now()) @onCreate(now())
-  updatedAt temporal.UpdatedAt
+model Product {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  price       Int      // Цена в копейках (например, 10000 = 100 рублей)
+  imageUrl    String?  // Ссылка на картинку (пригодится для красоты)
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    Int
+  createdAt   DateTime @default(now())
 }
