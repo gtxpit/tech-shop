@@ -2,7 +2,6 @@ import { db } from "./db.ts";
 import bcrypt from "bcrypt";
 
 async function main() {
-  // Явно передаём строку подключения, чтобы Prisma 8 знала, куда стучаться
   await db.connect({
     url: "postgresql://postgres:prisma@localhost:5433/shop_db",
   });
@@ -25,6 +24,5 @@ main()
     process.exit(1);
   })
   .finally(async () => {
-    // Закрываем соединение, чтобы скрипт завершился
     await db.close();
   });
