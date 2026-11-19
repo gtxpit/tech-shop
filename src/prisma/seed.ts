@@ -10,7 +10,7 @@ async function main() {
   const hashedPassword = await bcrypt.hash("123", 10);
 
   const user = await db.orm.public.User.create({
-    email: "test2@example.com", // <-- Поменяй на этот email
+    email: "test2@example.com", 
     password: hashedPassword,
     name: "Пётр",
   });
