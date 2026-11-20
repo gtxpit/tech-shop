@@ -24,18 +24,19 @@
     "start": "node dist/server.mjs"
   },
   "dependencies": {
-    "@prisma/composer": "0.38.0",
-    "@prisma/composer-prisma-cloud": "0.38.0",
     "@prisma/orm-postgres": "8.0.0-rc.23",
     "alchemy": "2.0.0-beta.84",
     "bcrypt": "^6.0.0",
+    "express": "^5.3.0",
+    "pg": "^8.23.1",
     "temporal-polyfill": "^1.0.6"
   },
   "devDependencies": {
     "@prisma/dev": "0.25.2",
     "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
     "@types/node": "^26.6.5",
-    "prisma": "8.0.0-rc.33",
+    "@types/pg": "^8.23.1",
     "tsdown": "^0.23.1",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3"
