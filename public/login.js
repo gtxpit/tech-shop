@@ -20,3 +20,4 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     alert("Ошибка: " + result.error);
   }
 });
+я

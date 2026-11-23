@@ -1,29 +1,51 @@
-body {
-  background-color: rgb(255, 255, 255);
-  margin: 0;
-  font-family: sans-serif;
+* {
+  box-sizing: border-box;
 }
 
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background: linear-gradient(160deg, #d3d8e0 0%, #b9c0cc 100%);
+  background-attachment: fixed;
+  color: #2e3238;
+  margin: 0;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  border-bottom: 2px solid #eee;
+  padding: 12px 24px;
+  background-color: #3a3d42;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .goHome h2 {
   margin: 0;
 }
 
-a {
+.goHome a {
   text-decoration: none;
-  color: rgb(240, 29, 26);
+  color: #ffffff;
   font-size: 24px;
-  font-weight: bold;
-  border: 1px solid black;
-  border-radius: 50px;
-  padding: 3px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.goHome a:hover {
+  color: #adb1b7;
 }
 
 .mini-profile {
@@ -31,10 +53,54 @@ a {
   cursor: pointer;
 }
 
-img {
-  width: 50px;
-  height: 50px;
+.mini-profile img {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid black;
+  border: 2px solid #ffffff;
+  transition: border-color 0.2s;
+}
+
+.mini-profile:hover img {
+  border-color: #adb1b7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 24px 0;
+}
+
+.item {
+  background-color: #f0f1f3;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(46, 50, 56, 0.15);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+
+.item:hover {
+  background-color: #adb1b7;
+  opacity: 0,5;
+}
+
+.newDiv {
+  width: 50px;
 }
