@@ -1,5 +1,6 @@
+import 'dotenv/config'
 import { Pool } from 'pg'
 
 export const pool = new Pool({
-  connectionString: 'postgresql://postgres:prisma@localhost:5433/shop_db',
+  connectionString: process.env.DATABASE_URL,
 })

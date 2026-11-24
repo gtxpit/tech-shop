@@ -14,7 +14,7 @@ jobs:
         image: postgres:17
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: prisma
+          POSTGRES_PASSWORD: 1111
           POSTGRES_DB: shop_db
         ports:
           - 5433:5432
@@ -25,7 +25,7 @@ jobs:
           --health-retries 5
 
     env:
-      DATABASE_URL: postgresql://postgres:prisma@localhost:5433/shop_db
+      DATABASE_URL: postgresql://postgres:1111@localhost:5433/shop_db
 
     steps:
     - uses: actions/checkout@v4
@@ -44,14 +44,13 @@ jobs:
         key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-playwright-
-    # ------------------------------------------------
       
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
     - name: Create Database Tables
       run: |
-        PGPASSWORD=prisma psql -h localhost -p 5433 -U postgres -d shop_db -c "
+        PGPASSWORD=1111 psql -h localhost -p 5433 -U postgres -d shop_db -c "
         CREATE TABLE IF NOT EXISTS \"User\" (
           id SERIAL PRIMARY KEY,
           email TEXT UNIQUE NOT NULL,
