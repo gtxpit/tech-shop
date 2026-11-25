@@ -27,3 +27,15 @@ async function fetchCard() {
 }
 
 document.addEventListener("DOMContentLoaded", fetchCard);
+
+function profileClick() {
+  const avatar = document.getElementById("avatarBtn");
+
+  if (avatar) {
+    avatar.addEventListener("click", () => {
+      window.location.href = "../html/profile.html";
+    });
+  }
+}
+
+profileClick();

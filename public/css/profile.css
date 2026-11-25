@@ -1,0 +1,14 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+    max-width: 170px;
+}
+
+
+#saveBtn {
+    max-width: 150px;
+    margin-top: 7px;
+}
