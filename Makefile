@@ -9,3 +9,5 @@ lint:
 
 test:
 	npx playwright test
+products:
+	docker exec -it testprisma-postgres-1 psql -U postgres -d shop_db -c "SELECT id, title, price, image FROM \"Product\";"

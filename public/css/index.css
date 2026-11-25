@@ -2,9 +2,6 @@
   box-sizing: border-box;
 }
 
-body.dark {
-
-}
 body {
   font-family:
     system-ui,
@@ -18,6 +15,10 @@ body {
   margin: 0;
   padding: 16px;
   min-height: 100vh;
+}
+button {
+  border-radius: 7px;
+  margin-left: 5px;
 }
 
 img {
@@ -92,6 +93,7 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 170px;
   min-height: 250px;
   transition:
     transform 0.2s,
@@ -114,3 +116,19 @@ img {
   border-radius: 15px;
   background-color: wheat;
 }
+
+.product-image {
+  min-width: 150px;
+  min-height: 140px;
+  border-radius: 20px;
+}
+
+.buy-btn {
+  background-color: bisque;
+}
+
+.buy-btn:hover {
+  opacity: 0, 5;
+  background-color: rgb(228, 182, 126);
+}
+  

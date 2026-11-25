@@ -14,13 +14,25 @@
 
       <div class="mini-profile">
         <img src="/avatar.jpeg" alt="" />
-        <button class="theme">Сменить тему</button>
+        <button popovertarget="my-popover">Сменить тему</button>
+        <div id="my-popover" popover>
+          <p>
+            Здесь пока нет функционала для смены темы,но он обязательно появится
+            позже!
+          </p>
+        </div>
       </div>
     </div>
-    
+
     <div class="grid">
-      <div class="item"><h2>Будущая карточка</h2></div>
+      <div class="item" id="productTemplate" style="display: none">
+        <img class="product-image" src="" alt="Товар" />
+        <h3 class="product-title"></h3>
+        <p class="product-price"></p>
+        <button class="buy-btn">Купить</button>
+      </div>
     </div>
+
+    <script src="../script/index.js"></script>
   </body>
 </html>
- 
